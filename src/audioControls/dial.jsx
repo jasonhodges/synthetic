@@ -1,7 +1,6 @@
-/* eslint no-undef: "off"*/
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-import * as Nexus from '../scripts/NexusUI';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import * as Nexus from "../scripts/NexusUI";
 
 class Dial extends Component {
   static propTypes = {
@@ -11,17 +10,17 @@ class Dial extends Component {
     min: PropTypes.number,
     max: PropTypes.number,
     step: PropTypes.number,
-    value: PropTypes.number,
+    value: PropTypes.number
   };
 
   static defaultProps = {
     size: [75, 75],
-    interaction: 'radial',
-    mode: 'relative',
+    interaction: "radial",
+    mode: "relative",
     min: 0,
     max: 1,
     step: 0,
-    value: 0,
+    value: 0
   };
 
   state = {
@@ -29,10 +28,11 @@ class Dial extends Component {
   };
 
   componentWillMount = () => {
-    this.setState({id: this.props.id})
+    this.setState({ id: this.props.id });
   };
+
   onChange = value => {
-    console.log(`Dial value changed: ${value}`)
+    console.log(`Dial value changed: ${value}`);
     // You could pass in a callback via props to pass value to parent ...
     //  this.props.onChange(value)
   };
@@ -47,14 +47,12 @@ class Dial extends Component {
       step: this.props.step,
       value: this.props.value
     });
-    // eslint-enable
-    dial.on('change', this.onChange)
+    dial.on("change", this.onChange);
   };
 
   render() {
-    return <div id={this.state.id}></div>
+    return <div id={this.state.id} />;
   }
 }
 
 export default Dial;
-
