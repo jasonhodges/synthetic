@@ -14,7 +14,18 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "rules": {
+      "no-undef": "off",
+      "no-unused-expressions": "off"
+    },
+    "globals": {
+      "Nexus": true,
+      "define": true
+    },
+    "env": {
+      "amd": true
+    }
   },
   "browserslist": [
     ">0.2%",
