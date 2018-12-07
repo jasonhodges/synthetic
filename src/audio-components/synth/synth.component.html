@@ -1,0 +1,46 @@
+<div class="container">
+  <app-dial #dial_Volume
+            id="dial_volume"
+            [id]="'dial_volume'"
+            [size]="[80,80]"
+            [interaction]="'radial'"
+            [mode]="'relative'"
+            [min]="0"
+            [max]="1"
+            [step]="0.1"
+            [value]="0">
+  </app-dial>
+  <app-dial #dial_Filter
+            id="dial_filter"
+            [id]="'dial_filter'"
+            [size]="[60,60]"
+            [interaction]="'radial'"
+            [mode]="'relative'"
+            [min]="0"
+            [max]="1"
+            [step]="0"
+            [value]="0">
+  </app-dial>
+  <app-dial #dial_Lfo
+            id="dial_lfo"
+            [id]="'dial_lfo'"
+            [size]="[40,40]"
+            [interaction]="'radial'"
+            [mode]="'relative'"
+            [min]="0"
+            [max]="1"
+            [step]="0"
+            [value]="0"
+            [color]="['accent', '#366d93']">
+  </app-dial>
+  <app-slider #slider_freq
+              id="slider_freq"
+              [id]="'slider_freq'"
+              [size]="[120,20]"
+              [mode]="'relative'"
+              [min]="0"
+              [max]="1"
+              [step]="0"
+              [value]="0">
+  </app-slider>
+</div>
