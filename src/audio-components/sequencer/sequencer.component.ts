@@ -1,4 +1,5 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+
 declare var Nexus: any;
 declare var Tone: any;
 
@@ -10,12 +11,13 @@ declare var Tone: any;
 export class SequencerComponent implements OnInit {
   @ViewChild('sequencer') sequencer: ElementRef;
   @Input() id: string;
-
+  loop;
+  keys;
   constructor() { }
 
   ngOnInit() {
     Nexus.context = Tone.context;
-
+    let comp = this;
     let newSequencer = new Nexus.Sequencer(this.id, {
       'size': [600, 400],
       'mode': 'toggle',
@@ -27,7 +29,7 @@ export class SequencerComponent implements OnInit {
 
     let noteNames = ["C1", "D1", "E1", "F1", "G1", "A2"];
 
-    let keys = new Tone.MonoSynth({
+    comp.keys = new Tone.MonoSynth({
       'oscillator': {
         'type': 'square'
       },
@@ -36,15 +38,15 @@ export class SequencerComponent implements OnInit {
         "release": 0.5
       }
     }).toMaster();
-    keys.volume.value = -25;
-    let loop = new Tone.Sequence(function (time, col) {
+    // comp.keys.volume.value = -25;
+    this.loop = new Tone.Sequence(function (time, col) {
       for (let i = 0; i < 6; i++) {
         if (newSequencer.matrix.pattern[i][col] === true) {
           console.log(noteNames[i]);
-          keys.triggerAttackRelease(noteNames[i], "16n")
+          comp.keys.triggerAttackRelease(noteNames[i], "16n")
         }
       }
-    }, [0, 1, 2, 3, [1, 2, 3, 4], 8, 9, 10, 11, 12, 13, 14, 15], '8n');
+    }, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], '8n');
 
     Tone.Transport.bpm.value = 165;
     Tone.Transport.start();
@@ -63,12 +65,17 @@ export class SequencerComponent implements OnInit {
     });
 
     btnStart.on('change', function () {
-      loop.start();
+      comp.loop.start();
     });
 
     btnStop.on('change', function () {
-      loop.stop();
+      comp.loop.stop();
     });
   }
 
+  changeVolume(event) {
+    console.log(event)
+    this.keys.volume.value = event;
+    this.keys.frequency.value = event;
+  }
 }

@@ -23,6 +23,7 @@ export class SliderComponent implements OnInit {
   }
 
   ngOnInit() {
+    let comp = this;
     Nexus.context = Tone.context;
     Nexus.colors.fill = '#444';
 
@@ -33,7 +34,8 @@ export class SliderComponent implements OnInit {
       'max': this.max,
       'step': this.step,
       'value': this.value
-    })
+    });
+
     this.color ? newSlider.colorize(this.color[0], this.color[1]) : newSlider.colorize('accent', '#00e6ac');
 
     this.slider = newSlider;
