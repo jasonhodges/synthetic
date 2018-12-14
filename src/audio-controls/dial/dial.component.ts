@@ -11,7 +11,7 @@ declare var Tone: any;
 export class DialComponent implements OnInit {
   @ViewChild('dial') dial: ElementRef;
   @Input() id: string;
-  @Input() size: [number,number];
+  @Input() size: [number, number];
   @Input() interaction: string;
   @Input() mode: string;
   @Input() min: number;
@@ -20,7 +20,9 @@ export class DialComponent implements OnInit {
   @Input() value: number;
   @Input() color: [string, string];
   @Output() change = new EventEmitter();
-  constructor() {  }
+
+  constructor() {
+  }
 
   ngOnInit() {
     let comp = this;
@@ -29,13 +31,13 @@ export class DialComponent implements OnInit {
     Nexus.colors.fill = '#444';
 
     let newDial = new Nexus.Dial(this.id, {
-      'size': this.size,
-      'interaction': this.interaction,
-      'mode': this.mode,
-      'min': this.min,
-      'max': this.max,
-      'step': this.step,
-      'value': this.value
+      'size': this.size || [40, 40],
+      'interaction': this.interaction || 'radial',
+      'mode': this.mode || 'relative',
+      'min': this.min || 0,
+      'max': this.max || 1,
+      'step': this.step || 0,
+      'value': this.value || 0
     });
 
     this.color ? newDial.colorize(this.color[0], this.color[1]) : newDial.colorize('accent', '#00e6ac');

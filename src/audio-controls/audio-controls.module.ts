@@ -16,7 +16,8 @@ import { TextButtonComponent } from './text-button/text-button.component';
   imports: [
     CommonModule
   ],
-  declarations: [DialComponent,
+  declarations: [
+    DialComponent,
     SliderComponent,
     ButtonComponent,
     EnvelopeComponent,
@@ -26,8 +27,10 @@ import { TextButtonComponent } from './text-button/text-button.component';
     SelectComponent,
     TextButtonComponent,
     NumberComponent,
-    PositionComponent],
-  exports: [DialComponent,
+    PositionComponent
+  ],
+  exports: [
+    DialComponent,
     SliderComponent,
     ButtonComponent,
     EnvelopeComponent,
@@ -37,7 +40,8 @@ import { TextButtonComponent } from './text-button/text-button.component';
     SelectComponent,
     TextButtonComponent,
     NumberComponent,
-    PositionComponent]
+    PositionComponent
+  ]
 })
 export class AudioControlsModule {
 }

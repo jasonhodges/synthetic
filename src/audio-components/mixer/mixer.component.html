@@ -1,0 +1,17 @@
+<div id="mixer">
+  <ng-container *ngFor="let c of arr(numChannels).fill(1); let i = index">
+    <div class="sliderSlot">
+      <app-slider #mixer_slider
+                  attr.id="mixer_slider{{i}}"
+                  [id]="'mixer_slider' + i"
+                  [signal]="incomingSignals[i]"
+                  [size]="[20,120]"
+                  [mode]="'relative'"
+                  [min]="0"
+                  [max]="1"
+                  [step]="0"
+                  [value]="0">
+      </app-slider>
+    </div>
+  </ng-container>
+</div>

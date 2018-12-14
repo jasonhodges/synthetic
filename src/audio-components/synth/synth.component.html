@@ -43,6 +43,16 @@
               [step]="0"
               [value]="0">
   </app-slider>
+  <app-slider #slider_volume
+              id="slider_volume"
+              [id]="'slider_volume'"
+              [size]="[20,120]"
+              [mode]="'relative'"
+              [min]="0"
+              [max]="1"
+              [step]="0"
+              [value]="0">
+  </app-slider>
   <app-button #button_test
               id="button_test"
               [id]="'button_test'"
@@ -71,8 +81,4 @@
               id="number_test"
               [id]="'number_test'">
   </app-number>
-  <!--<app-piano #piano_test-->
-  <!--id="piano_test"-->
-  <!--[id]="'piano_test'">-->
-  <!--</app-piano>-->
 </div>

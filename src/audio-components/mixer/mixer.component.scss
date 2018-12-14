@@ -1,0 +1,14 @@
+#mixer {
+  width: fit-content;
+  height: 140px;
+  display: flex;
+  flex-direction: row;
+  padding: 4px;
+}
+
+.sliderSlot {
+  width: 30px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
