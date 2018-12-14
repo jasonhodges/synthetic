@@ -21,8 +21,8 @@ export class SequencerComponent implements OnInit {
     let newSequencer = new Nexus.Sequencer(this.id, {
       'size': [600, 400],
       'mode': 'toggle',
-      'rows': 6,
-      'columns': 16
+      'rows': 4,
+      'columns': 8
     });
 
     this.sequencer = newSequencer;
