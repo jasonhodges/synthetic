@@ -22,7 +22,7 @@ export class SoundGeneratorComponent implements OnInit {
     Nexus.context = Tone.context;
     let comp = this;
 
-    comp.lfo = new Tone.LFO("2n", 40, 400).start();
+    comp.lfo = new Tone.LFO("4n", 40, 400).start();
     // comp.lfo.connect(comp.generator);
     comp.panner = new Tone.Panner(-1);
 
@@ -40,6 +40,7 @@ export class SoundGeneratorComponent implements OnInit {
     comp.cvIn = new Tone.Scale(
         Tone.Frequency('C3').toFrequency(),
         Tone.Frequency('C7').toFrequency());
+    // comp.lfo.connect(comp.generator.frequency);
     comp.signal.connect(comp.generator.frequency);
 
 
