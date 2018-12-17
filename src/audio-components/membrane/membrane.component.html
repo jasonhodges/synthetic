@@ -1,0 +1,34 @@
+<div id="membrane-container">
+  <svg class="beat-box">
+    <path *ngFor="let d of boxes; let i =index"
+          [attr.d]="d"
+          [attr.stroke]="activeBox === i ? 'fuchsia' : 'none'"
+          [attr.strokeWidth]="activeBox === i ? 3 : 0"
+          [attr.fill]="box[i] ? 'grey' : 'whitesmoke'"
+          (click)="toggleBox(i)">
+    </path>
+  </svg>
+  <div class="dial-slot">
+    <app-button id="button_start"
+                [id]="'button_start'"
+                [color]="['accent', 'chartreuse']"
+                (click)="isPlaying ? stop() : start()">
+    </app-button>
+    <app-dial id="pitch"
+              [id]="'pitch'"
+              [min]="0"
+              [max]="120"
+              [step]="1"
+              [(value)]="pitch.value"
+              (change)="changePitch($event)">
+    </app-dial>
+    <app-dial id="volume"
+              [id]="'volume'"
+              [min]="0"
+              [max]="120"
+              [step]="1"
+              [(value)]="synth.volume.value"
+              (change)="synth.volume.value = $event">
+    </app-dial>
+  </div>
+</div>

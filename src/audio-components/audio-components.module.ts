@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { AudioControlsModule } from '../audio-controls/audio-controls.module';
+import { MembraneComponent } from './membrane/membrane.component';
+import { MixerComponent } from './mixer/mixer.component';
 import { SequencerComponent } from './sequencer/sequencer.component';
 import { SynthComponent } from './synth/synth.component';
 import { SoundGeneratorComponent } from './sound-generator/sound-generator.component';
@@ -10,7 +12,19 @@ import { SoundGeneratorComponent } from './sound-generator/sound-generator.compo
     CommonModule,
     AudioControlsModule
   ],
-  declarations: [SynthComponent, SequencerComponent, SoundGeneratorComponent],
-  exports: [SynthComponent, SequencerComponent, SoundGeneratorComponent]
+  declarations: [
+    SynthComponent,
+    SequencerComponent,
+    MixerComponent,
+    MembraneComponent,
+    SoundGeneratorComponent
+  ],
+  exports: [
+    SynthComponent,
+    SequencerComponent,
+    MixerComponent,
+    MembraneComponent,
+    SoundGeneratorComponent
+  ]
 })
 export class AudioComponentsModule { }

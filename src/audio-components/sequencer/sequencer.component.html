@@ -4,12 +4,19 @@
 <app-dial #dial_VolumeSequencer
           id="dial_volumeSequencer"
           [id]="'dial_volumeSequencer'"
-          [size]="[80,80]"
+          [size]="[40,40]"
           [interaction]="'radial'"
           [mode]="'relative'"
-          [min]="-20"
-          [max]="20"
+          [min]="0"
+          [max]="100"
           [step]="1"
-          [value]="0"
+          [value]="30"
           (change)="changeVolume($event)">
 </app-dial>
+<app-slider id="slider_frequencey"
+            [id]="'slider_frequencey'"
+            [min]="20"
+            [max]="440"
+            [value]="200"
+            (change)="changeFrequency($event)">
+</app-slider>

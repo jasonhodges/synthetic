@@ -1,0 +1,21 @@
+#membrane-container {
+  background-color: #282c34;
+  width: min-content;
+  border: 2px solid chartreuse;
+}
+
+.beat-box {
+  height: 246px;
+  width: 242px;
+  margin: 8px;
+}
+
+#button_start, #pitch, #volume {
+  padding: 8px;
+  display: flex;
+}
+
+.dial-slot {
+  display: flex;
+  flex-direction: row;
+}

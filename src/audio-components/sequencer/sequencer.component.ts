@@ -19,7 +19,7 @@ export class SequencerComponent implements OnInit {
     Nexus.context = Tone.context;
     let comp = this;
     let newSequencer = new Nexus.Sequencer(this.id, {
-      'size': [600, 400],
+      'size': [600, 300],
       'mode': 'toggle',
       'rows': 4,
       'columns': 8
@@ -33,12 +33,17 @@ export class SequencerComponent implements OnInit {
       'oscillator': {
         'type': 'square'
       },
+      filter: {
+        'Q': 6,
+        'type': 'lowpass',
+        'rolloff': -24
+      },
       "envelope": {
         "attack": 0,
         "release": 0.5
       }
     }).toMaster();
-    // comp.keys.volume.value = -25;
+
     this.loop = new Tone.Sequence(function (time, col) {
       for (let i = 0; i < 6; i++) {
         if (newSequencer.matrix.pattern[i][col] === true) {
@@ -49,17 +54,16 @@ export class SequencerComponent implements OnInit {
     }, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], '8n');
 
     Tone.Transport.bpm.value = 165;
-    Tone.Transport.start();
     Tone.context.latencyHint = "fastest";
     Tone.context.lookAhead = 0.01;
 
     let btnStart = new Nexus.Button('#btn-start', {
-      'size': [80, 80],
+      'size': [40, 40],
       'mode': 'toggle',
       'state': false
     });
     let btnStop = new Nexus.Button('#btn-stop', {
-      'size': [80, 80],
+      'size': [40, 40],
       'mode': 'toggle',
       'state': false
     });
@@ -75,7 +79,15 @@ export class SequencerComponent implements OnInit {
 
   changeVolume(event) {
     console.log(event)
+    // this.keys.volume.setValueAtTime(event, 0.01);
     this.keys.volume.value = event;
-    this.keys.frequency.value = event;
   }
+
+  changeFrequency(event) {
+    console.log(event)
+    this.keys.rolloff = -24;
+    this.keys.filter.frequency.value = event;
+    // this.keys.frequency.value = event;
+  }
+
 }
