@@ -1,15 +1,15 @@
-import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild } from '@angular/core';
+import { Theme } from '../../shared/theme';
 
 declare var Nexus: any;
 declare var Tone: any;
-
 @Component({
   selector: 'app-dial',
   templateUrl: './dial.component.html',
   styleUrls: ['./dial.component.scss']
 })
 export class DialComponent implements OnInit {
-  @ViewChild('dial') dial: ElementRef;
+  @ViewChild('dial') dial: TemplateRef<any>;
   @Input() id: string;
   @Input() size: [number, number];
   @Input() interaction: string;
@@ -20,6 +20,7 @@ export class DialComponent implements OnInit {
   @Input() value: number;
   @Input() color: [string, string];
   @Output() change = new EventEmitter();
+  theme = new Theme();
 
   constructor() {
   }
@@ -28,7 +29,8 @@ export class DialComponent implements OnInit {
     let comp = this;
 
     Nexus.context = Tone.context;
-    Nexus.colors.fill = '#444';
+    Nexus.colors.fill = comp.theme.fills.main;
+    Nexus.colors.accent = comp.theme.strokes.blue;
 
     let newDial = new Nexus.Dial(this.id, {
       'size': this.size || [40, 40],
@@ -40,7 +42,7 @@ export class DialComponent implements OnInit {
       'value': this.value || 0
     });
 
-    this.color ? newDial.colorize(this.color[0], this.color[1]) : newDial.colorize('accent', '#00e6ac');
+    this.color ? newDial.colorize(this.color[0], this.color[1]) : newDial.colorize('accent', comp.theme.strokes.orange);
 
     this.dial = newDial;
 

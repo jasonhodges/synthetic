@@ -4,6 +4,12 @@ import * as _ from 'lodash';
 declare const Tone: any;
 declare var Nexus: any;
 
+export enum oscTypes {
+  'sine',
+  'square',
+  'sawtooth'
+}
+
 @Component({
   selector: 'app-membrane',
   templateUrl: './membrane.component.html',
@@ -31,7 +37,7 @@ export class MembraneComponent implements OnInit, AfterViewInit {
     this.synth = new Tone.MembraneSynth().toMaster();
     this.pitch = new Tone.Signal(20);
     this.synth.volume.value = 60;
-    this.synth.oscillator.type = 'square';
+    this.synth.oscillator.type = oscTypes[1];
     this.configureSequence();
   }
 
@@ -94,5 +100,19 @@ export class MembraneComponent implements OnInit, AfterViewInit {
 
   changePitch(v) {
     this.pitch.value = v;
+  }
+
+
+  modifySynth(v) {
+    let synthValues = [
+      'frequency',
+      'type',
+      'spread'
+    ]
+    console.log(oscTypes[v.value]);
+    console.log(`before value: ${this.synth.oscillator[synthValues[v.index]]}`);
+    this.synth.oscillator[synthValues[v.index]] = oscTypes[v.value];
+    console.log(`after value: ${this.synth.oscillator[synthValues[v.index]]}`);
+
   }
 }

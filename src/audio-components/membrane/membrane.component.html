@@ -3,7 +3,7 @@
     <path *ngFor="let d of boxes; let i =index"
           [attr.d]="d"
           [attr.stroke]="activeBox === i ? 'fuchsia' : 'none'"
-          [attr.strokeWidth]="activeBox === i ? 3 : 0"
+          [attr.strokeWidth]="activeBox === i ? 5 : 0"
           [attr.fill]="box[i] ? 'grey' : 'whitesmoke'"
           (click)="toggleBox(i)">
     </path>
@@ -30,5 +30,16 @@
               [(value)]="synth.volume.value"
               (change)="synth.volume.value = $event">
     </app-dial>
+    <app-multislider #multislider_test
+                     id="multislider_test"
+                     [id]="'multislider_test'"
+                     [size]="[300,120]"
+                     [numberOfSliders]="3"
+                     [min]="0"
+                     [max]="2"
+                     [step]="1"
+                     [values]="[1,1,1]"
+                     (change)="modifySynth($event)">
+    </app-multislider>
   </div>
 </div>
