@@ -11,7 +11,6 @@ declare var Tone: any;
 })
 export class MixerComponent implements OnInit {
   @Input() numChannels: number;
-  @Input() incomingSignals = [];
   channels: any[] = [];
   arr = Array;
 
@@ -22,7 +21,8 @@ export class MixerComponent implements OnInit {
     Nexus.context = Tone.context;
     let loc_channels = [];
     for (let n = 0; n < this.numChannels; n++) {
-      loc_channels.push({ id: `mixer_slider${n}` });
+      let ch_gain = new Tone.Gain(0).toMaster();
+      loc_channels.push(ch_gain);
     }
     if (loc_channels.length === this.numChannels) {
       this.channels = loc_channels;

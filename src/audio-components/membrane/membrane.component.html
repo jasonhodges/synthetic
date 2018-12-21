@@ -1,10 +1,10 @@
-<div id="membrane-container">
+<div id="module-membrane" class="module module-FOURu">
   <svg class="beat-box">
     <path *ngFor="let d of boxes; let i =index"
           [attr.d]="d"
           [attr.stroke]="activeBox === i ? 'fuchsia' : 'none'"
           [attr.strokeWidth]="activeBox === i ? 5 : 0"
-          [attr.fill]="box[i] ? 'grey' : 'whitesmoke'"
+          [attr.fill]="box[i] ? 'grey' : '#282c34'"
           (click)="toggleBox(i)">
     </path>
   </svg>
@@ -22,24 +22,14 @@
               [(value)]="pitch.value"
               (change)="changePitch($event)">
     </app-dial>
-    <app-dial id="volume"
-              [id]="'volume'"
-              [min]="0"
-              [max]="120"
-              [step]="1"
-              [(value)]="synth.volume.value"
-              (change)="synth.volume.value = $event">
-    </app-dial>
-    <app-multislider #multislider_test
-                     id="multislider_test"
-                     [id]="'multislider_test'"
-                     [size]="[300,120]"
-                     [numberOfSliders]="3"
-                     [min]="0"
-                     [max]="2"
-                     [step]="1"
-                     [values]="[1,1,1]"
-                     (change)="modifySynth($event)">
-    </app-multislider>
+    <!--<app-dial id="frequency"-->
+              <!--[id]="'frequency'"-->
+              <!--[min]="0"-->
+              <!--[max]="120"-->
+              <!--[step]="1"-->
+              <!--(change)="osc.frequency.value = $event">-->
+    <!--</app-dial>-->
+    <app-source id="out" [name]="'out'" [signal]="synth"></app-source>
+    <app-sink id="in" [signal]="pitch" [parent]="'osc'" [name]="'freq'"></app-sink>
   </div>
 </div>

@@ -10,6 +10,7 @@ declare var Tone: any;
 })
 export class SliderComponent implements OnInit, AfterViewInit {
   @ViewChild('slider') slider: ElementRef;
+  @Input() name: string = '';
   @Input() id: string;
   @Input() signal: AudioParam;
   @Input() size: [number, number];
@@ -25,7 +26,11 @@ export class SliderComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-
+    if (!this.signal) {
+      this.signal = new Tone.Signal((!!this.value)
+        ? this.value
+        : (this.max - this.min) / 2);
+    }
   }
 
   ngAfterViewInit() {
@@ -49,8 +54,7 @@ export class SliderComponent implements OnInit, AfterViewInit {
     this.slider = newSlider;
 
     newSlider.on('change', function (value?: any) {
-      // comp.signal.setValueAtTime(value, 0.1);
-      // comp
+      comp.signal.setValueAtTime(value, 0.1);
       comp.change.emit(value);
     })
   }
