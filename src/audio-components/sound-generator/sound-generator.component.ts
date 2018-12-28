@@ -16,63 +16,60 @@ export class SoundGeneratorComponent implements OnInit {
   signal;
   osc;
   cvIn;
+  testChain; ;
   constructor() {}
 
   ngOnInit() {
     Nexus.context = Tone.context;
     let comp = this;
 
-    comp.lfo = new Tone.LFO("4n", 40, 400).start();
+    comp.lfo = new Tone.LFO("2t", 40, 400).start();
+    // comp.lfo = new Tone.LFO("2t").start();
     // comp.lfo.connect(comp.generator);
-    comp.panner = new Tone.Panner(-1);
+    comp.panner = new Tone.Panner(0).toMaster();
 
     comp.generator = new Tone.MonoSynth({
       'oscillator': {
         'type': 'square'
       },
       "envelope": {
-        "attack": 0,
-        "release": 0.5
+        "attack": 0.3,
+        "release": 0.3
       }
     }).toMaster();
-    comp.signal = new Tone.Signal(1);
-    comp.osc = new Tone.OmniOscillator().start();
-    comp.cvIn = new Tone.Scale(
-        Tone.Frequency('C3').toFrequency(),
-        Tone.Frequency('C7').toFrequency());
-    // comp.lfo.connect(comp.generator.frequency);
-    comp.signal.connect(comp.generator.frequency);
-
-
-    // let btnOn = new Nexus.Button("#button_on", {
-    //   size: [80, 80],
-    //   mode: "toggle",
-    //   state: false
-    // });
-
-    // let btnOff = new Nexus.Button("#btn-off", {
-    //   size: [80, 80],
-    //   mode: "toggle",
-    //   state: false
-    // });
-
-    // this.btnOn.on("change", function() {
-    //   comp.generator.triggerAttackRelease("C4", "4n");
-    // });
+    // comp.signal = new Tone.Signal(1);
+    // comp.lfo.chain(comp.generator.frequency, comp.panner);
+    // comp.lfo.chain(comp.generator.frequency);
+    // comp.generator.connect(comp.panner);
+    // comp.signal.connect(comp.generator.frequency);
+    this.testChain = [this.generator.frequency, this.panner ];
+    // console.log('generator: ', comp.generator);
   }
 
   changeSignal(v) {
     console.log('v: ', v);
-    this.signal.value = v;
+    // this.signal.value = v;
+    this.panner.pan.value = v;
+    // this.panner = new Tone.Panner(v).toMaster();
+    // this.lfo.min = v;
     // this.signal = new Tone.Signal(v);
     // this.signal.connect(this.generator.frequency);
 
   }
 
   playSound() {
-    // this.signal.connect(this.lfo).connect(this.generator);
-    // this.generator.frequency.connect(this.lfo);
-    this.generator.triggerAttackRelease("C3", "1n");
-    // this.signal.toMaster();
+    // this.lfo.min.rampTo(0, 0.05);
+    // this.lfo.mute = false;
+    this.generator.volume.rampTo(0, 0);
+    // this.lfo.chain(this.generator.frequency, this.panner);
+    this.generator.connect(this.panner);
+    this.generator.triggerAttack("C1");
+  }
+  stopSound() {
+    // this.lfo.mute = true;
+    this.generator.triggerRelease();
+    this.generator.volume.rampTo(-Infinity, 0.5);
+    // this.lfo.disconnect();
+
   }
 }
