@@ -23,7 +23,7 @@ export class SoundGeneratorComponent implements OnInit {
     Nexus.context = Tone.context;
     let comp = this;
 
-    comp.lfo = new Tone.LFO("2t", 40, 400).start();
+    comp.lfo = new Tone.LFO("8t", 40, 400).start();
     // comp.lfo = new Tone.LFO("2t").start();
     // comp.lfo.connect(comp.generator);
     comp.panner = new Tone.Panner(0).toMaster();
@@ -39,10 +39,10 @@ export class SoundGeneratorComponent implements OnInit {
     }).toMaster();
     // comp.signal = new Tone.Signal(1);
     // comp.lfo.chain(comp.generator.frequency, comp.panner);
-    // comp.lfo.chain(comp.generator.frequency);
+    comp.lfo.chain(comp.generator.frequency);
     // comp.generator.connect(comp.panner);
     // comp.signal.connect(comp.generator.frequency);
-    this.testChain = [this.generator.frequency, this.panner ];
+    // this.testChain = [this.generator.frequency, this.panner ];
     // console.log('generator: ', comp.generator);
   }
 
