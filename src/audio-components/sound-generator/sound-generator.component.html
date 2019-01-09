@@ -6,12 +6,11 @@
     [size]="[80, 80]"
     [interaction]="'vertical'"
     [mode]="'relative'"
-    [min]="-1"
-    [max]="1"
+    [min]=".1"
+    [max]="8"
     [step]="0.1"
     [value]="0"
-    (change)="changeSignal($event)"
-  >
+    (change)="changeSignal($event)">
   </app-dial>
   <app-button #button_on
   id="button_on"

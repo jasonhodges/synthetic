@@ -16,7 +16,8 @@ export class SoundGeneratorComponent implements OnInit {
   signal;
   osc;
   cvIn;
-  testChain; ;
+  testChain;
+  autoFilter;
   constructor() {}
 
   ngOnInit() {
@@ -27,6 +28,7 @@ export class SoundGeneratorComponent implements OnInit {
     // comp.lfo = new Tone.LFO("2t").start();
     // comp.lfo.connect(comp.generator);
     comp.panner = new Tone.Panner(0).toMaster();
+    comp.autoFilter = new Tone.AutoFilter().toMaster().start();
 
     comp.generator = new Tone.MonoSynth({
       'oscillator': {
@@ -39,7 +41,7 @@ export class SoundGeneratorComponent implements OnInit {
     }).toMaster();
     // comp.signal = new Tone.Signal(1);
     // comp.lfo.chain(comp.generator.frequency, comp.panner);
-    comp.lfo.chain(comp.generator.frequency);
+    // comp.lfo.chain(comp.generator.frequency);
     // comp.generator.connect(comp.panner);
     // comp.signal.connect(comp.generator.frequency);
     // this.testChain = [this.generator.frequency, this.panner ];
@@ -49,7 +51,8 @@ export class SoundGeneratorComponent implements OnInit {
   changeSignal(v) {
     console.log('v: ', v);
     // this.signal.value = v;
-    this.panner.pan.value = v;
+    // this.panner.pan.value = v;
+    this.autoFilter.frequency.value = v;
     // this.panner = new Tone.Panner(v).toMaster();
     // this.lfo.min = v;
     // this.signal = new Tone.Signal(v);
@@ -62,8 +65,9 @@ export class SoundGeneratorComponent implements OnInit {
     // this.lfo.mute = false;
     this.generator.volume.rampTo(0, 0);
     // this.lfo.chain(this.generator.frequency, this.panner);
-    this.generator.connect(this.panner);
-    this.generator.triggerAttack("C1");
+    // this.generator.connect(this.panner);
+    this.generator.connect(this.autoFilter);
+    this.generator.triggerAttack("C2");
   }
   stopSound() {
     // this.lfo.mute = true;
