@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild } from '@angular/core';
 import { Theme } from '../../shared/theme';
 
 declare var Nexus: any;
@@ -8,9 +8,10 @@ declare var Tone: any;
   templateUrl: './dial.component.html',
   styleUrls: ['./dial.component.scss']
 })
-export class DialComponent implements OnInit {
+export class DialComponent implements OnInit, AfterViewInit {
   @ViewChild('dial') dial: TemplateRef<any>;
   @Input() id: string;
+  @Input() signal: AudioParam;
   @Input() size: [number, number];
   @Input() interaction: string;
   @Input() mode: string;
@@ -26,6 +27,15 @@ export class DialComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (!this.signal) {
+      this.signal = new Tone.Signal((!!this.value)
+        ? this.value
+        : (this.max - this.min) / 2);
+    }
+  }
+
+  ngAfterViewInit() {
+
     let comp = this;
 
     Nexus.context = Tone.context;
@@ -47,9 +57,9 @@ export class DialComponent implements OnInit {
     this.dial = newDial;
 
     newDial.on('change', function (value?: any) {
+      comp.signal.setValueAtTime(value, 0.1);
       comp.change.emit(value);
     })
   }
-
 
 }
