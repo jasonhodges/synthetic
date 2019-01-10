@@ -1,0 +1,52 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  background-color: black;
+}
+
+* {
+
+}
+
+$ONEu: 60px;
+$TWOu: $ONEu * 2;
+$FOURu: $TWOu * 2;
+$SIXu: $TWOu + $FOURu;
+$rack-height: 326px;
+
+.container {
+  width: fit-content;
+  margin: 8px;
+}
+
+.rack {
+  height: $rack-height;
+  width: 100vw;
+  background-color: #282c34;
+  //padding: 4px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-top: 4px;
+}
+
+.module {
+  height: $rack-height;
+  margin-left: 4px;
+  background-color: whitesmoke;
+  outline: 2px solid black;
+  outline-offset: -3px;
+  box-sizing: border-box;
+  //padding: 4px;
+}
+
+[id^='module-'] {
+  height: $rack-height;
+}
+
+.module-ONEu {
+  width: $ONEu;
+}
+
+.module-FOURu {
+  width: $FOURu;
+}

@@ -1,0 +1,74 @@
+<div class="container">
+  <app-dial #dial_Volume
+            id="dial_volume"
+            [id]="'dial_volume'"
+            [size]="[80,80]"
+            [interaction]="'radial'"
+            [mode]="'relative'"
+            [min]="0"
+            [max]="1"
+            [step]="0.1"
+            [value]="0">
+  </app-dial>
+  <app-dial #dial_Filter
+            id="dial_filter"
+            [id]="'dial_filter'"
+            [size]="[60,60]"
+            [interaction]="'radial'"
+            [mode]="'relative'"
+            [min]="0"
+            [max]="1"
+            [step]="0"
+            [value]="0">
+  </app-dial>
+  <app-dial #dial_Lfo
+            id="dial_lfo"
+            [id]="'dial_lfo'"
+            [size]="[40,40]"
+            [interaction]="'radial'"
+            [mode]="'relative'"
+            [min]="0"
+            [max]="1"
+            [step]="0"
+            [value]="0"
+            [color]="['accent', '#366d93']">
+  </app-dial>
+  <app-slider #slider_freq
+              id="slider_freq"
+              [id]="'slider_freq'"
+              [size]="[120,20]"
+              [mode]="'relative'"
+              [min]="0"
+              [max]="1"
+              [step]="0"
+              [value]="0">
+  </app-slider>
+  <app-slider #slider_volume
+              id="slider_volume"
+              [id]="'slider_volume'"
+              [size]="[20,120]"
+              [mode]="'relative'"
+              [min]="0"
+              [max]="1"
+              [step]="0"
+              [value]="0">
+  </app-slider>
+  <app-button #button_test
+              id="button_test"
+              [id]="'button_test'"
+              [size]="[40,40]"
+              [mode]="'button'"
+              [state]="false">
+  </app-button>
+  <app-envelope #envelope_test
+                id="envelope_test"
+                [id]="'envelope_test'"
+                [size]="[300,120]"
+                [points]="[{x: 0.1, y: 0.5},{x: 0.4,y:0.2}, {x:0.7, y:0.9}, {x: 1,y:0.3}]">
+  </app-envelope>
+
+  <app-number #number_test
+              id="number_test"
+              [id]="'number_test'">
+  </app-number>
+</div>

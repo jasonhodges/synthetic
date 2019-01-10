@@ -1,0 +1,35 @@
+<div id="module-membrane" class="module module-FOURu">
+  <svg class="beat-box">
+    <path *ngFor="let d of boxes; let i =index"
+          [attr.d]="d"
+          [attr.stroke]="activeBox === i ? 'fuchsia' : 'none'"
+          [attr.strokeWidth]="activeBox === i ? 5 : 0"
+          [attr.fill]="box[i] ? 'grey' : '#282c34'"
+          (click)="toggleBox(i)">
+    </path>
+  </svg>
+  <div class="dial-slot">
+    <app-button id="button_start"
+                [id]="'button_start'"
+                [color]="['accent', 'chartreuse']"
+                (click)="isPlaying ? stop() : start()">
+    </app-button>
+    <app-dial id="pitch"
+              [id]="'pitch'"
+              [min]="0"
+              [max]="120"
+              [step]="1"
+              [(value)]="pitch.value"
+              (change)="changePitch($event)">
+    </app-dial>
+    <!--<app-dial id="frequency"-->
+              <!--[id]="'frequency'"-->
+              <!--[min]="0"-->
+              <!--[max]="120"-->
+              <!--[step]="1"-->
+              <!--(change)="osc.frequency.value = $event">-->
+    <!--</app-dial>-->
+    <app-source id="out" [name]="'out'" [signal]="synth"></app-source>
+    <app-sink id="in" [signal]="pitch" [parent]="'osc'" [name]="'freq'"></app-sink>
+  </div>
+</div>

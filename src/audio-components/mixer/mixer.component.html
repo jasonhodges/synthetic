@@ -1,0 +1,19 @@
+<div id="module-mixer" class="module">
+  <ng-container *ngFor="let c of channels; let i = index">
+    <div class="sliderSlot">
+      <app-slider #mixer_slider
+                  class="mixer_slider"
+                  attr.id="mixer_slider{{i}}"
+                  [id]="'mixer_slider' + i"
+                  [name]="'volume'"
+                  [signal]="c.gain"
+                  [size]="[20,260]"
+                  [mode]="'relative'"
+                  [min]="0"
+                  [max]="1"
+                  [value]="0">
+      </app-slider>
+      <app-sink id="in" [signal]="c" [parent]="'master'" [name]="'ch'+(i + 1)"></app-sink>
+    </div>
+  </ng-container>
+</div>
