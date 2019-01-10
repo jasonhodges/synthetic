@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
+import { PatchesService } from '../shared/patches.service';
 
 declare const Tone: any;
 
@@ -9,8 +10,28 @@ declare const Tone: any;
 })
 export class AppComponent {
   title = 'app';
+  master;
+  showPatches: boolean = true;
+  modules = [];
 
-  constructor() {
+  constructor(
+    private zone: NgZone,
+    private patches: PatchesService
+  ) {
     Tone.Transport.start();
+    this.master = Tone.Master;
+    document.oncontextmenu = () => false;
+  }
+
+  add(t) {
+    this.showPatches = false;
+    this.modules.push(t);
+    setTimeout(() => {
+      this.zone.run(() => this.showPatches = true);
+    }, 10);
+  }
+
+  remove(i) {
+    this.modules.splice(i, 1);
   }
 }

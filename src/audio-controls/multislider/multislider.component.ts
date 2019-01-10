@@ -1,4 +1,5 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Theme } from '../../shared/theme';
 
 declare var Nexus: any;
 declare var Tone: any;
@@ -18,11 +19,15 @@ export class MultisliderComponent implements OnInit {
   @Input() max: number;
   @Input() step: number;
   @Input() values: Number[];
+  @Output() change = new EventEmitter();
+  theme = new Theme();
 
   constructor() {
   }
 
   ngOnInit() {
+    let comp = this;
+
     Nexus.context = Tone.context;
     Nexus.colors.fill = '#444';
 
@@ -35,9 +40,14 @@ export class MultisliderComponent implements OnInit {
       'values': this.values
     });
 
-    this.color ? newMultislider.colorize(this.color[0], this.color[1]) : newMultislider.colorize('accent', '#00e6ac');
+    this.color ? newMultislider.colorize(this.color[0], this.color[1]) : newMultislider.colorize('accent', comp.theme.strokes.orange);
 
     this.multislider = newMultislider;
+
+    newMultislider.on('change', function (value?: any) {
+      console.log(`multislider: ${JSON.stringify(value)}`)
+      comp.change.emit(value)
+    })
   }
 
 }

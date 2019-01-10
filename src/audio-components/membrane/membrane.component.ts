@@ -4,6 +4,12 @@ import * as _ from 'lodash';
 declare const Tone: any;
 declare var Nexus: any;
 
+export enum oscTypes {
+  'sine',
+  'square',
+  'sawtooth'
+}
+
 @Component({
   selector: 'app-membrane',
   templateUrl: './membrane.component.html',
@@ -11,12 +17,14 @@ declare var Nexus: any;
 })
 export class MembraneComponent implements OnInit, AfterViewInit {
   @Input() id: string;
+  moduleWidth: number = 240;
   isPlaying: boolean = false;
   currentPeriod = 2;
   noteLengths = ['64n', '32n', '16n', '8n', '4n'];
   pulse: boolean = false;
   loop;
   synth;
+  osc;
   pitch;
   coords = [
     [0, 0], [1, 0], [2, 0], [3, 0],
@@ -28,15 +36,15 @@ export class MembraneComponent implements OnInit, AfterViewInit {
   box = _.fill(_.range(16), false);
 
   constructor(private zone: NgZone) {
-    this.synth = new Tone.MembraneSynth().toMaster();
+    this.synth = new Tone.MembraneSynth();
     this.pitch = new Tone.Signal(20);
-    this.synth.volume.value = 60;
-    this.synth.oscillator.type = 'square';
+    this.osc = this.synth.oscillator;
+    this.synth.oscillator.type = oscTypes[1];
     this.configureSequence();
   }
 
   get boxes() {
-    return _.map(this.coords, ([x, y]) => `M ${x * 62} ${y * 62} h 60 v 60 h -60 v -60`);
+    return _.map(this.coords, ([x, y]) => `M ${x * 58} ${y * 58} h 55 v 55 h -55 v -55`);
   }
 
   ngOnInit() {

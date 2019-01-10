@@ -1,11 +1,22 @@
+<div class="rack">
+  <!--<div class="module">-->
+    <app-mixer id="mixer_one" [numChannels]="6"></app-mixer>
+  <!--</div>-->
+  <app-membrane id="membrane_one" [id]="'membrane_one'"></app-membrane>
+  <app-oscillator></app-oscillator>
+</div>
+<div class="rack"></div>
+<app-patch-overlay *ngIf="showPatches"></app-patch-overlay>
+
+<!-- LEFT OVER FROM OLD VERSION -->
+
 <app-auto-filter class="container"></app-auto-filter>
 
-<app-synth>
-</app-synth>
+<!-- <app-synth></app-synth> -->
 
 <!--<app-sequencer id="sequencer-one" [id]="'sequencer-one'">-->
 <!--</app-sequencer>-->
-<div class="container container-mixer">
+<!-- <div class="container container-mixer">
   <app-mixer [numChannels]="6" [incomingSignals]="['bpm','filter.Q','volume','panner','frequency','osc']">
   </app-mixer>
 </div>
@@ -14,5 +25,5 @@
   </app-membrane>
 </div>
 
-<app-sound-generator></app-sound-generator>
+<app-sound-generator></app-sound-generator> -->
 

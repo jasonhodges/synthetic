@@ -7,6 +7,7 @@ import { MultisliderComponent } from './multislider/multislider.component';
 import { NumberComponent } from './number/number.component';
 import { PianoComponent } from './piano/piano.component';
 import { PositionComponent } from './position/position.component';
+import { RackComponent } from './rack/rack.component';
 import { RadioButtonComponent } from './radio-button/radio-button.component';
 import { SelectComponent } from './select/select.component';
 import { SliderComponent } from './slider/slider.component';
@@ -27,7 +28,8 @@ import { TextButtonComponent } from './text-button/text-button.component';
     SelectComponent,
     TextButtonComponent,
     NumberComponent,
-    PositionComponent
+    PositionComponent,
+    RackComponent
   ],
   exports: [
     DialComponent,
