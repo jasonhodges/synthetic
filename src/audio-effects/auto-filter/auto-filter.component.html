@@ -1,0 +1,39 @@
+<div id="autoFilter">
+    <h3>Auto Filter</h3>
+
+    <app-button #autoFilter_on
+    id="autoFilter_on"
+    [id]="'autoFilter_on'"
+    [size]="[40,40]"
+    [mode]="'button'"
+    [state]="false">
+  </app-button>
+  on
+
+  <app-dial #frequency_dial
+  id="frequency_dial"
+  [id]="'frequency_dial'"
+  [interaction]="'vertical'"
+  [mode]="'relative'"
+  [min]="1"
+  [max]="48"
+  [step]="1"
+  [value]="0"
+  >
+  freq
+  </app-dial>
+
+  <app-dial #depth_dial
+  id="frequency_dial"
+  [id]="'frequency_dial'"
+  [interaction]="'vertical'"
+  [mode]="'relative'"
+  [min]="0"
+  [max]="1"
+  [step]=".1"
+  [value]="0"
+  >
+  depth
+  </app-dial>
+  
+</div>

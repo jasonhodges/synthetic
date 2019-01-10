@@ -58,7 +58,8 @@
               [id]="'button_test'"
               [size]="[40,40]"
               [mode]="'button'"
-              [state]="false">
+              [state]="false"
+              (click)="playSound()">
   </app-button>
   <app-envelope #envelope_test
                 id="envelope_test"
