@@ -24,7 +24,8 @@ export class AutoFilterComponent implements OnInit {
     Nexus.context = Tone.context;
     // let comp = this;
 
-    this.autoFilter = new Tone.AutoFilter('4n').toMaster().start();
+    // this.autoFilter = new Tone.AutoFilter('4n').toMaster().start();
+    this.autoFilter = new Tone.AutoFilter('4n').start();
   }
 
   changeFrequency(value) {
