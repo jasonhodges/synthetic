@@ -9,6 +9,10 @@
   margin: 4px;
 }
 
+.box-active {
+  fill: rgb(0,230,172);
+}
+
 #button_start, #pitch, #volume, #out, #in {
   padding: 8px;
   display: flex;

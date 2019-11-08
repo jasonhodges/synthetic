@@ -1,12 +1,23 @@
 <div id="module-oscillator" class="module module-ONEu">
+  <label for="waveform">waveform</label>
   <app-dial id="waveform"
             [id]="'waveform'"
             [min]="0"
             [max]="3"
             [step]="1"
             [(value)]="currentType"
-            (change)="osc.type = types[$event]">
+            (change)="setType($event)">
   </app-dial>
+  <label for="classes">classes</label>
+  <app-dial id="classes"
+            [id]="'classes'"
+            [min]="0"
+            [max]="5"
+            [step]="1"
+            [(value)]="currentClass"
+            (change)="setClass($event)">
+  </app-dial>
+  <label for="frequency">frequency</label>
   <app-dial id="frequency"
             [id]="'frequency'"
             [signal]="osc.frequency"
@@ -14,6 +25,7 @@
             [max]="4000"
             [step]="1">
   </app-dial>
+
   <app-sink id="in" [signal]="cvIn" [parent]="'osc'" [name]="'cv'"></app-sink>
   <app-source id="out" [name]="'out'" [signal]="osc"></app-source>
 </div>

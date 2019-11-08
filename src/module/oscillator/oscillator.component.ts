@@ -11,15 +11,15 @@ export class OscillatorComponent implements OnInit {
   osc;
   cvIn;
   currentType = 0;
-  types = ['sine', 'sawtooth', 'square', 'triangle'];
+  types = ["sine4", "sawtooth4", "square4", "triangle4"];
   currentClass = 0;
   classes = ['simple', 'fat', 'pwm', 'fm', 'am', 'pulse'];
 
   constructor() {
     this.osc = new Tone.OmniOscillator().start();
     this.cvIn = new Tone.Scale(
-      Tone.Frequency('C3').toFrequency(),
-      Tone.Frequency('C7').toFrequency());
+      Tone.Frequency('C2').toFrequency(),
+      Tone.Frequency('C6').toFrequency());
     this.cvIn.connect(this.osc.frequency);
   }
 

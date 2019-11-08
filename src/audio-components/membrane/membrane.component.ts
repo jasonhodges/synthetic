@@ -21,7 +21,7 @@ export class MembraneComponent implements OnInit, AfterViewInit {
   isPlaying: boolean = false;
   currentPeriod = 2;
   noteLengths = ['64n', '32n', '16n', '8n', '4n'];
-  pulse: boolean = false;
+  pulse: boolean = true;
   loop;
   synth;
   osc;

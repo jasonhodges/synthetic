@@ -2,16 +2,17 @@
   <svg class="beat-box">
     <path *ngFor="let d of boxes; let i =index"
           [attr.d]="d"
-          [attr.stroke]="activeBox === i ? 'fuchsia' : 'none'"
+          [attr.stroke]="activeBox === i ? 'rgb(0,230,172)' : 'none'"
           [attr.strokeWidth]="activeBox === i ? 5 : 0"
           [attr.fill]="box[i] ? 'grey' : '#282c34'"
+          [attr.class]="activeBox === i ? 'box-active' : 'none'"
           (click)="toggleBox(i)">
     </path>
   </svg>
   <div class="dial-slot">
     <app-button id="button_start"
                 [id]="'button_start'"
-                [color]="['accent', 'chartreuse']"
+                [color]="['accent', 'rgb(0,230,172)']"
                 (click)="isPlaying ? stop() : start()">
     </app-button>
     <app-dial id="pitch"
