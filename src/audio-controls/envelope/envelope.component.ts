@@ -14,7 +14,7 @@ export interface Points {
   styleUrls: ['./envelope.component.scss']
 })
 export class EnvelopeComponent implements OnInit {
-  @ViewChild('envelope') envelope: ElementRef;
+  @ViewChild('envelope', {static: false}) envelope: ElementRef;
   @Input() id: string;
   @Input() color: [string, string];
   @Input() size: [number, number];

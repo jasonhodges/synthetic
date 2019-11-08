@@ -19,7 +19,7 @@ declare var Tone: any;
   encapsulation: ViewEncapsulation.None
 })
 export class ButtonComponent implements OnInit {
-  @ViewChild('button') button: ElementRef;
+  @ViewChild('button', {static: false}) button: ElementRef;
   @Input() id: string;
   @Input() size: [number, number];
   @Input() mode: string;

@@ -10,7 +10,7 @@ declare var Tone: any;
   styleUrls: ['./position.component.scss']
 })
 export class PositionComponent implements OnInit {
-  @ViewChild('position') position: ElementRef;
+  @ViewChild('position', {static: false}) position: ElementRef;
   @Output() change = new EventEmitter;
   @Input() id: string;
   @Input() color: [string, string];

@@ -17,8 +17,8 @@ export class SourceComponent implements AfterViewInit, OnDestroy {
 
   @Input() name: string;
   @Input() signal;
-  @ViewChild('socket') socket: ElementRef;
-  @ViewChild('cable') cable: CableComponent;
+  @ViewChild('socket', {static: false}) socket: ElementRef;
+  @ViewChild('cable', {static: false}) cable: CableComponent;
 
   draggable: Subscription;
   menu: Subscription;

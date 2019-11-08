@@ -9,7 +9,7 @@ declare var Tone: any;
   styleUrls: ['./sequencer.component.scss']
 })
 export class SequencerComponent implements OnInit {
-  @ViewChild('sequencer') sequencer: ElementRef;
+  @ViewChild('sequencer', {static: false}) sequencer: ElementRef;
   @Input() id: string;
   loop;
   keys;
