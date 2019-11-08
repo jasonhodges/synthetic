@@ -1,0 +1,7 @@
+<div class="rack">
+  <app-mixer id="mixer_one" [numChannels]="6"></app-mixer>
+  <app-membrane id="membrane_one" [id]="'membrane_one'"></app-membrane>
+  <app-oscillator></app-oscillator>
+</div>
+<div class="rack"></div>
+<app-patch-overlay *ngIf="showPatches"></app-patch-overlay>

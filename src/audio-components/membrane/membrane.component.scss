@@ -1,0 +1,25 @@
+#module-membrane {
+  //background-color: #282c34;
+  //border: 1px solid chartreuse;
+  height: 100%;
+}
+
+.beat-box {
+  height: 246px;
+  margin: 4px;
+}
+
+.box-active {
+  fill: rgb(0,230,172);
+}
+
+#button_start, #pitch, #volume, #out, #in {
+  padding: 8px;
+  display: flex;
+}
+
+.dial-slot {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
