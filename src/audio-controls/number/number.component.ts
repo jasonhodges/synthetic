@@ -9,7 +9,7 @@ declare var Tone: any;
   styleUrls: ['./number.component.scss']
 })
 export class NumberComponent implements OnInit {
-  @ViewChild('number') number: ElementRef;
+  @ViewChild('number', {static: false}) number: ElementRef;
   @Input() id: string;
   @Input() color: [string, string];
   @Input() size: [number, number];

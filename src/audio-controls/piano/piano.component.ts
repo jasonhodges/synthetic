@@ -9,7 +9,7 @@ declare var Tone: any;
   styleUrls: ['./piano.component.scss']
 })
 export class PianoComponent implements OnInit {
-  @ViewChild('piano') piano: ElementRef;
+  @ViewChild('piano', {static: false}) piano: ElementRef;
   @Output() change = new EventEmitter;
   @Input() id: string;
   @Input() color: [string, string];

@@ -9,7 +9,7 @@ declare var Tone: any;
   styleUrls: ['./dial.component.scss']
 })
 export class DialComponent implements OnInit, AfterViewInit {
-  @ViewChild('dial') dial: TemplateRef<any>;
+  @ViewChild('dial', {static: false}) dial: TemplateRef<any>;
   @Input() id: string;
   @Input() signal: AudioParam;
   @Input() size: [number, number];

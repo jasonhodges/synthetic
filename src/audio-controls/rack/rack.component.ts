@@ -6,8 +6,8 @@ import { AfterViewInit, Component, OnInit, TemplateRef, ViewChild, ViewContainer
   styleUrls: ['./rack.component.scss']
 })
 export class RackComponent implements OnInit, AfterViewInit {
-  @ViewChild('vc', { read: ViewContainerRef }) vc: ViewContainerRef;
-  @ViewChild('rack') rack: TemplateRef<any>;
+  @ViewChild('vc', { read: ViewContainerRef, static: false}) vc: ViewContainerRef;
+  @ViewChild('rack', {static: false}) rack: TemplateRef<any>;
 
   constructor() {
   }

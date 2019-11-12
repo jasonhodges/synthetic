@@ -10,7 +10,7 @@ declare var Tone: any;
   styleUrls: ['./multislider.component.scss']
 })
 export class MultisliderComponent implements OnInit {
-  @ViewChild('multislider') multislider: ElementRef;
+  @ViewChild('multislider', {static: false}) multislider: ElementRef;
   @Input() id: string;
   @Input() color: [string, string];
   @Input() size: string;

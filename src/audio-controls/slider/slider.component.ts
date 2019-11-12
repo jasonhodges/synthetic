@@ -9,7 +9,7 @@ declare var Tone: any;
   styleUrls: ['./slider.component.scss']
 })
 export class SliderComponent implements OnInit, AfterViewInit {
-  @ViewChild('slider') slider: ElementRef;
+  @ViewChild('slider', {static: false}) slider: ElementRef;
   @Input() name: string = '';
   @Input() id: string;
   @Input() signal: AudioParam;
