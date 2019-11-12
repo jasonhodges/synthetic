@@ -2,6 +2,10 @@
   <app-mixer id="mixer_one" [numChannels]="6"></app-mixer>
   <app-membrane id="membrane_one" [id]="'membrane_one'"></app-membrane>
   <app-oscillator></app-oscillator>
+<!--  <app-synth id="synth_one" [id]="'synth_one'"></app-synth>-->
+  <app-module-shell class="module module-EIGHTu">
+    <app-synth id="synth_one" [id]="'synth_one'"></app-synth>
+  </app-module-shell>
 </div>
 <div class="rack"></div>
 <app-patch-overlay *ngIf="showPatches"></app-patch-overlay>

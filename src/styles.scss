@@ -11,6 +11,8 @@ $ONEu: 60px;
 $TWOu: $ONEu * 2;
 $FOURu: $TWOu * 2;
 $SIXu: $TWOu + $FOURu;
+$EIGHTu: $FOURu * 2;
+
 $rack-height: 326px;
 
 .container {
@@ -51,6 +53,13 @@ $rack-height: 326px;
   width: $FOURu;
 }
 
+.module-SIXu {
+  width: $SIXu;
+}
+
+.module-EIGHTu {
+  width: $EIGHTu;
+}
 label {
   font-size: 10px;
   font-family: "PT Mono", monospace;
