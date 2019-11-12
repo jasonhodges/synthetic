@@ -1,7 +1,8 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
-
-declare var Nexus: any;
-declare var Tone: any;
+import * as Nexus from 'nexusui';
+import * as Tone from 'tone';
+// declare var Nexus: any;
+// declare var Tone: any;
 
 @Component({
   selector: 'app-slider',

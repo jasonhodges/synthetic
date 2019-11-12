@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { AudioControlsModule } from '@audio-controls/audio-controls.module';
 
 import { SynthComponent } from './synth.component';
 
@@ -8,7 +9,8 @@ describe('SynthComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SynthComponent ]
+      declarations: [ SynthComponent ],
+      imports: [AudioControlsModule]
     })
     .compileComponents();
   }));

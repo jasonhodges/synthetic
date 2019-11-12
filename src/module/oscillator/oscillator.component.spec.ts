@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { AudioControlsModule } from '@audio-controls/audio-controls.module';
+import { SharedModule } from '@shared/shared.module';
 
 import { OscillatorComponent } from './oscillator.component';
 
@@ -8,7 +10,8 @@ describe('OscillatorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OscillatorComponent ]
+      declarations: [ OscillatorComponent ],
+      imports: [SharedModule, AudioControlsModule]
     })
     .compileComponents();
   }));

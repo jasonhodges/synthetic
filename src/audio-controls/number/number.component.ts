@@ -1,7 +1,9 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import * as Nexus from 'nexusui';
+import * as Tone from 'tone';
 
-declare var Nexus: any;
-declare var Tone: any;
+// declare var Nexus: any;
+// declare var Tone: any;
 
 @Component({
   selector: 'app-number',
@@ -9,7 +11,7 @@ declare var Tone: any;
   styleUrls: ['./number.component.scss']
 })
 export class NumberComponent implements OnInit {
-  @ViewChild('number', {static: false}) number: ElementRef;
+  @ViewChild('number', {static: true}) number: ElementRef;
   @Input() id: string;
   @Input() color: [string, string];
   @Input() size: [number, number];

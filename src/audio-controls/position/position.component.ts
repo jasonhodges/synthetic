@@ -1,8 +1,8 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { Mode } from '../../shared/mode.enum';
 
-declare var Nexus: any;
-declare var Tone: any;
+import * as Nexus from 'nexusui';
+import * as Tone from 'tone';
 
 @Component({
   selector: 'app-position',

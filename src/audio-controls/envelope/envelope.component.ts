@@ -1,7 +1,7 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 
-declare var Nexus: any;
-declare var Tone: any;
+import * as Nexus from 'nexusui';
+import * as Tone from 'tone';
 
 export interface Points {
   x: number,

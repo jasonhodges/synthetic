@@ -1,7 +1,6 @@
 import { Component, NgZone } from '@angular/core';
 import { PatchesService } from '../shared/patches.service';
-
-declare const Tone: any;
+import * as Tone from 'tone';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +19,7 @@ export class AppComponent {
   ) {
     Tone.Transport.start();
     this.master = Tone.Master;
-    document.oncontextmenu = () => false;
+    // document.oncontextmenu = () => false;
   }
 
   add(t) {

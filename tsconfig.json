@@ -1,10 +1,11 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": "src",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
+    "importHelpers": true,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -12,6 +13,12 @@
     "typeRoots": [
       "node_modules/@types"
     ],
+    "paths": {
+      "@app/*": ["app/*"],
+      "@shared/*": ["shared/*"],
+      "@audio-controls/*": ["audio-controls/*"],
+      "@audio-components/*": ["audio-components/*"]
+    },
     "lib": [
       "es2017",
       "dom"

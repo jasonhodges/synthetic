@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { PianoComponent } from './piano.component';
 
 describe('PianoComponent', () => {
@@ -10,7 +9,7 @@ describe('PianoComponent', () => {
     TestBed.configureTestingModule({
       declarations: [PianoComponent]
     })
-      .compileComponents();
+    .compileComponents();
   }));
 
   beforeEach(() => {

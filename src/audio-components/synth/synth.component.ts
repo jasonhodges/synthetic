@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import * as Nexus from 'nexusui';
+import * as Tone from 'tone';
 
-declare var Nexus: any;
-declare var Tone: any;
+// declare var Nexus: any;
+// declare var Tone: any;
 
 @Component({
   selector: 'app-synth',

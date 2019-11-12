@@ -1,8 +1,9 @@
 import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild } from '@angular/core';
 import { Theme } from '../../shared/theme';
 
-declare var Nexus: any;
-declare var Tone: any;
+import * as Nexus from 'nexusui';
+import * as Tone from 'tone';
+
 @Component({
   selector: 'app-dial',
   templateUrl: './dial.component.html',

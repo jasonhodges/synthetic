@@ -42,7 +42,8 @@ import { TextButtonComponent } from './text-button/text-button.component';
     SelectComponent,
     TextButtonComponent,
     NumberComponent,
-    PositionComponent
+    PositionComponent,
+    RackComponent
   ]
 })
 export class AudioControlsModule {

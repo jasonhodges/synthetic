@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { AudioControlsModule } from '../../audio-controls/audio-controls.module';
+import { SharedModule } from '../../shared/shared.module';
 
 import { MixerComponent } from './mixer.component';
 
@@ -8,7 +10,8 @@ describe('MixerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [MixerComponent]
+      declarations: [MixerComponent],
+      imports: [SharedModule, AudioControlsModule]
     })
       .compileComponents();
   }));

@@ -31,7 +31,8 @@
             ],
             "scripts": [
               "node_modules/lodash/lodash.js",
-              "node_modules/tone/build/Tone.js"
+              "node_modules/tone/build/Tone.js",
+              "node_modules/nexusui/index.js"
             ]
           },
           "configurations": {

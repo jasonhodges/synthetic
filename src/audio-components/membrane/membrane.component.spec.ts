@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { AudioControlsModule } from '@audio-controls/audio-controls.module';
+import { SharedModule } from '@shared/shared.module';
 
 import { MembraneComponent } from './membrane.component';
 
@@ -8,9 +10,10 @@ describe('MembraneComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [MembraneComponent]
+      declarations: [MembraneComponent],
+      imports: [SharedModule, AudioControlsModule]
     })
-      .compileComponents();
+    .compileComponents();
   }));
 
   beforeEach(() => {

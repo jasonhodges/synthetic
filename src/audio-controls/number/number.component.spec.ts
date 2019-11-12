@@ -10,7 +10,7 @@ describe('NumberComponent', () => {
     TestBed.configureTestingModule({
       declarations: [NumberComponent]
     })
-      .compileComponents();
+    .compileComponents();
   }));
 
   beforeEach(() => {

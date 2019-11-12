@@ -1,8 +1,10 @@
 import { AfterViewInit, Component, Input, NgZone, OnInit } from '@angular/core';
 import * as _ from 'lodash';
+import * as Nexus from 'nexusui';
+import * as Tone from 'tone';
 
-declare const Tone: any;
-declare var Nexus: any;
+// declare const Tone: any;
+// declare var Nexus: any;
 
 export enum oscTypes {
   'sine',

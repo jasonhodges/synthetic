@@ -8,9 +8,8 @@ import {
   ViewChild,
   ViewEncapsulation
 } from '@angular/core';
-
-declare var Nexus: any;
-declare var Tone: any;
+import * as Nexus from 'nexusui';
+import * as Tone from 'tone';
 
 @Component({
   selector: 'app-button',
@@ -19,7 +18,7 @@ declare var Tone: any;
   encapsulation: ViewEncapsulation.None
 })
 export class ButtonComponent implements OnInit {
-  @ViewChild('button', {static: false}) button: ElementRef;
+  @ViewChild('button', { static: true }) button: ElementRef;
   @Input() id: string;
   @Input() size: [number, number];
   @Input() mode: string;

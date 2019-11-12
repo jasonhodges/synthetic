@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import * as Tone from 'tone';
 
-declare const Tone: any;
+// declare const Tone: any;
 
 @Component({
   selector: 'app-oscillator',
