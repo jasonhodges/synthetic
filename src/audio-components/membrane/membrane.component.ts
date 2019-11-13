@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, NgZone, OnInit } from '@angular/core';
+import { Component, Input, NgZone } from '@angular/core';
 import * as _ from 'lodash';
 
 declare const Tone: any;
@@ -15,9 +15,8 @@ export enum oscTypes {
   templateUrl: './membrane.component.html',
   styleUrls: ['./membrane.component.scss']
 })
-export class MembraneComponent implements OnInit, AfterViewInit {
+export class MembraneComponent {
   @Input() id: string;
-  moduleWidth: number = 240;
   isPlaying: boolean = false;
   currentPeriod = 2;
   noteLengths = ['64n', '32n', '16n', '8n', '4n'];
@@ -45,13 +44,6 @@ export class MembraneComponent implements OnInit, AfterViewInit {
 
   get boxes() {
     return _.map(this.coords, ([x, y]) => `M ${x * 58} ${y * 58} h 55 v 55 h -55 v -55`);
-  }
-
-  ngOnInit() {
-  }
-
-  ngAfterViewInit() {
-
   }
 
   configureSequence() {

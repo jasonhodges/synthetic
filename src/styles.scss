@@ -24,42 +24,14 @@ $rack-height: 326px;
   height: $rack-height;
   width: 100vw;
   background-color: #282c34;
-  //padding: 4px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   margin-top: 4px;
 }
 
-.module {
-  height: $rack-height;
-  margin-left: 4px;
-  background-color: whitesmoke;
-  outline: 2px solid black;
-  outline-offset: -3px;
-  box-sizing: border-box;
-  //padding: 4px;
-}
 
-[id^='module-'] {
-  height: $rack-height;
-}
 
-.module-ONEu {
-  width: $ONEu;
-}
-
-.module-FOURu {
-  width: $FOURu;
-}
-
-.module-SIXu {
-  width: $SIXu;
-}
-
-.module-EIGHTu {
-  width: $EIGHTu;
-}
 label {
   font-size: 10px;
   font-family: "PT Mono", monospace;

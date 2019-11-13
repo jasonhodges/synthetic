@@ -9,4 +9,10 @@ export class Theme {
   fills = {
     main: '#33373E'
   };
+  unitSizes = {
+    2: 'TWOu',
+    4: 'FOURu',
+    6: 'SIXu',
+    8: 'EIGHTu'
+  }
 }

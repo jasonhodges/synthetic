@@ -1,11 +1,20 @@
 <div class="rack">
-  <app-mixer id="mixer_one" [numChannels]="6"></app-mixer>
-  <app-membrane id="membrane_one" [id]="'membrane_one'"></app-membrane>
-  <app-oscillator></app-oscillator>
-<!--  <app-synth id="synth_one" [id]="'synth_one'"></app-synth>-->
-  <app-module-shell class="module module-EIGHTu">
+  <app-module-shell [id]="'module-mixer'">
+    <app-mixer id="mixer_one" [numChannels]="4"></app-mixer>
+  </app-module-shell>
+  <app-module-shell>
+    <app-membrane id="membrane_one" [id]="'membrane_one'"></app-membrane>
+  </app-module-shell>
+  <app-module-shell>
+    <app-oscillator></app-oscillator>
+  </app-module-shell>
+  <app-module-shell [unitSize]="8" [id]="'module-synth'">
     <app-synth id="synth_one" [id]="'synth_one'"></app-synth>
   </app-module-shell>
 </div>
-<div class="rack"></div>
+<div class="rack">
+  <app-module-shell [id]="'module-sequencer'">
+    <app-sequencer id="sequencer_one" [id]="'sequencer_one'"></app-sequencer>
+  </app-module-shell>
+</div>
 <app-patch-overlay *ngIf="showPatches"></app-patch-overlay>

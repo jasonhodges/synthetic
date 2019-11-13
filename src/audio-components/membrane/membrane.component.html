@@ -1,6 +1,6 @@
-<div id="module-membrane" class="module module-FOURu">
+<div id="module-membrane">
   <svg class="beat-box">
-    <path *ngFor="let d of boxes; let i =index"
+    <path *ngFor="let d of boxes; let i = index"
           [attr.d]="d"
           [attr.stroke]="activeBox === i ? 'rgb(0,230,172)' : 'none'"
           [attr.strokeWidth]="activeBox === i ? 5 : 0"

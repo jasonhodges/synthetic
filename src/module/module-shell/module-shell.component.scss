@@ -1,0 +1,46 @@
+@import "~audio-components/mixer/mixer.component";
+
+$ONEu: 60px;
+$TWOu: $ONEu * 2;
+$FOURu: $TWOu * 2;
+$SIXu: $TWOu + $FOURu;
+$EIGHTu: $FOURu * 2;
+
+$rack-height: 326px;
+
+.shell {
+  padding: 4px;
+}
+
+.module {
+  height: $rack-height;
+  margin-left: 4px;
+  background-color: whitesmoke;
+  outline: 2px solid black;
+  outline-offset: -3px;
+  box-sizing: border-box;
+  width: fit-content;
+}
+
+[id^='module-'] {
+  height: $rack-height;
+}
+
+.module-ONEu {
+  width: $ONEu;
+}
+
+.module-FOURu {
+  width: $FOURu;
+}
+
+.module-SIXu {
+  width: $SIXu;
+}
+
+.module-EIGHTu {
+  width: $EIGHTu;
+}
+
+
+

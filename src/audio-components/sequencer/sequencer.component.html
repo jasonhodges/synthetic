@@ -1,22 +1,27 @@
-<ng-template #sequencer></ng-template>
-<div id="btn-start"></div>
-<div id="btn-stop"></div>
-<app-dial #dial_VolumeSequencer
-          id="dial_volumeSequencer"
-          [id]="'dial_volumeSequencer'"
-          [size]="[40,40]"
-          [interaction]="'radial'"
-          [mode]="'relative'"
-          [min]="0"
-          [max]="100"
-          [step]="1"
-          [value]="30"
-          (change)="changeVolume($event)">
-</app-dial>
-<app-slider id="slider_frequencey"
-            [id]="'slider_frequencey'"
-            [min]="20"
-            [max]="440"
-            [value]="200"
-            (change)="changeFrequency($event)">
-</app-slider>
+<div class="container">
+  <div class="controls-container">
+    <div id="btn-start"></div>
+    <div id="btn-stop"></div>
+    <app-source id="out" [name]="'out'" [signal]="sequencerBlocks.synth" class="source"></app-source>
+    <app-dial #dial_VolumeSequencer
+              id="dial_volumeSequencer"
+              [id]="'dial_volumeSequencer'"
+              [size]="[40,40]"
+              [interaction]="'radial'"
+              [mode]="'relative'"
+              [min]="0"
+              [max]="100"
+              [step]="1"
+              [value]="30"
+              (change)="changeVolume($event)">
+    </app-dial>
+    <app-slider id="slider_frequency"
+                [id]="'slider_frequency'"
+                [min]="20"
+                [max]="440"
+                [value]="200"
+                (change)="changeFrequency($event)">
+    </app-slider>
+  </div>
+  <app-sequencer-blocks #sequencerBlocks id="sequencer_blocks" [id]="'sequencer_blocks'" [started]="started$"></app-sequencer-blocks>
+</div>
