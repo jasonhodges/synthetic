@@ -3,4 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  app-select > select{
+    color: white;
+  }
 }
